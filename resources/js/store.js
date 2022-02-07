@@ -52,8 +52,6 @@ export default new Vuex.Store({
 		},
 
 		obtenerDetalleVenta({}, id){
-			console.log(id, 'este es el id en el store')
-
 			return new Promise((resolve,reject) =>{
 				axios.get(`../api/ventas/${id}`).then((response) => {
 					resolve(response);

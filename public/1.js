@@ -45,6 +45,12 @@ __webpack_require__.r(__webpack_exports__);
     updateAuto: Function,
     deleteAuto: Function,
     actions: Boolean
+  },
+  data: function data() {
+    return {
+      image: "/storage/images/image_not_found.png",
+      host: window.location.origin
+    };
   }
 });
 
@@ -516,12 +522,12 @@ var render = function () {
       : _c("img", {
           staticClass: "card-img-top",
           staticStyle: { "max-height": "200px" },
-          attrs: { src: "storage/images/image_not_found.png" },
+          attrs: { src: _vm.host + _vm.image },
         }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c("h5", {
-        staticClass: "card-title bg-light",
+        staticClass: "card-title",
         domProps: {
           textContent: _vm._s(_vm.auto.marca + " - " + _vm.auto.modelo),
         },
@@ -533,7 +539,7 @@ var render = function () {
         _c("br"),
         _vm._v(" "),
         _c("b", [_vm._v("Valor: ")]),
-        _vm._v("$ "),
+        _vm._v("$"),
         _c("span", { domProps: { textContent: _vm._s(_vm.auto.valor) } }),
       ]),
       _vm._v(" "),

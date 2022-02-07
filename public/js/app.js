@@ -54983,7 +54983,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   mode: 'history',
   routes: [{
     path: '/',
-    name: 'home',
+    name: '/',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/home.vue */ "./resources/js/views/home.vue"));
     }
@@ -54997,13 +54997,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/clientes',
     name: 'clientes',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/clientes.vue */ "./resources/js/views/clientes.vue"));
+      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/clientes.vue */ "./resources/js/views/clientes.vue"));
     }
   }, {
     path: '/vendedores',
     name: 'vendedores',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/vendedores.vue */ "./resources/js/views/vendedores.vue"));
+      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/vendedores.vue */ "./resources/js/views/vendedores.vue"));
     }
   }, {
     path: '/vehiculos',
@@ -55021,12 +55021,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/venta/:id',
     name: 'venta',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/venta-detalle-component.vue */ "./resources/js/components/venta-detalle-component.vue"));
+      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/venta-detalle-component.vue */ "./resources/js/components/venta-detalle-component.vue"));
     }
   }, {
     path: '*',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/notFound.vue */ "./resources/js/views/notFound.vue"));
+      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/notFound.vue */ "./resources/js/views/notFound.vue"));
     }
   }]
 }));
@@ -55155,7 +55155,6 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     obtenerDetalleVenta: function obtenerDetalleVenta(_ref, id) {
       _objectDestructuringEmpty(_ref);
 
-      console.log(id, 'este es el id en el store');
       return new Promise(function (resolve, reject) {
         axios.get("../api/ventas/".concat(id)).then(function (response) {
           resolve(response);

@@ -61,7 +61,6 @@ export default{
 			obtenerDetalleVenta: 'obtenerDetalleVenta'
 		}),
 		obtenerVenta(){
-			console.log(this.id, 'este es el id')
 			this.obtenerDetalleVenta(this.id).then(response => {
 				this.venta = response.data;
 			}).catch(error => {

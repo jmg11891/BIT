@@ -102,9 +102,6 @@ export default {
 			}
 		}
 	},
-	// components: {
-	// 	'cliente': clienteComponent
-	// },
 	methods: {
 		...mapActions({
 			obtenerClientes: 'obtenerClientes'

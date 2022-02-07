@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/vendedores.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/vendedores.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/clientes.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/clientes.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -113,13 +113,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      vendedores: [],
-      vendedor: {
+      clientes: [],
+      cliente: {
         id: null,
         identificacion: null,
         nombres: "",
@@ -128,9 +127,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
-    obtenerVendedores: 'obtenerVendedores'
+    obtenerClientes: 'obtenerClientes'
   })), {}, {
-    cargarVendedores: function cargarVendedores() {
+    cargarClientes: function cargarClientes() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -139,8 +138,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.obtenerVendedores().then(function (response) {
-                  _this.vendedores = response.data;
+                return _this.obtenerClientes().then(function (response) {
+                  _this.clientes = response.data;
                 })["catch"](function (error) {
                   console.error(error);
                 });
@@ -153,64 +152,64 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee);
       }))();
     },
-    setSellerToUpdate: function setSellerToUpdate(vendedor) {
-      this.vendedor.id = vendedor.id;
-      this.vendedor.identificacion = vendedor.identificacion;
-      this.vendedor.nombres = vendedor.nombres;
-      this.vendedor.apellidos = vendedor.apellidos;
+    setClienteToUpdate: function setClienteToUpdate(cliente) {
+      this.cliente.id = cliente.id;
+      this.cliente.identificacion = cliente.identificacion;
+      this.cliente.nombres = cliente.nombres;
+      this.cliente.apellidos = cliente.apellidos;
     },
-    unSetSeller: function unSetSeller() {
-      this.vendedor.id = null;
-      this.vendedor.identificacion = null;
-      this.vendedor.nombres = '';
-      this.vendedor.apellidos = '';
+    unSetCliente: function unSetCliente() {
+      this.cliente.id = null;
+      this.cliente.identificacion = null;
+      this.cliente.nombres = '';
+      this.cliente.apellidos = '';
     },
-    guardarVendedor: function guardarVendedor() {
+    guardarCliente: function guardarCliente() {
       var _this2 = this;
 
-      if (!this.vendedor.id) {
-        axios.post("../api/vendedores", this.vendedor).then(function (response) {
-          alert('Se ha guardado correctamente el vendedor.');
+      if (!this.cliente.id) {
+        axios.post("../api/clientes", this.cliente).then(function (response) {
+          alert('Se ha guardado correctamente el cliente.');
 
-          _this2.vendedores.push(response.data);
+          _this2.clientes.push(response.data);
 
-          $("#modalGuardarVendedor").modal("hide");
+          $("#modalGuardarCliente").modal("hide");
 
-          _this2.unSetSeller();
+          _this2.unSetCliente();
         })["catch"](function (error) {
           console.error(error);
           alert(error);
         });
       } else {
-        axios.put("../api/vendedores/".concat(this.vendedor.id), this.vendedor).then(function (response) {
-          alert('Se ha editado la información del vendedor correctamente.');
-          $("#modalGuardarVendedor").modal("hide");
+        axios.put("../api/clientes/".concat(this.cliente.id), this.cliente).then(function (response) {
+          alert('Se ha editado la información del cliente correctamente.');
+          $("#modalGuardarCliente").modal("hide");
 
-          var index = _this2.vendedores.findIndex(function (vendedor) {
-            return vendedor.id == response.data.id;
+          var index = _this2.clientes.findIndex(function (cliente) {
+            return cliente.id == response.data.id;
           });
 
-          _this2.vendedores[index] = response.data;
+          _this2.clientes[index] = response.data;
 
-          _this2.unSetSeller();
+          _this2.unSetCliente();
         })["catch"](function (error) {
           console.error(error);
           alert(error);
         });
       }
     },
-    deleteSeller: function deleteSeller(id) {
+    deleteCliente: function deleteCliente(id) {
       var _this3 = this;
 
-      if (confirm("\xBFEst\xE1 seguro de eliminar el vendedor?")) {
-        axios["delete"]("../api/vendedores/".concat(id)).then(function (response) {
-          alert('Se ha elminado el vendedor correctamente.');
+      if (confirm("\xBFEst\xE1 seguro de eliminar el cliente?")) {
+        axios["delete"]("../api/clientes/".concat(id)).then(function (response) {
+          alert('Se ha elminado el cliente correctamente.');
 
-          var index = _this3.vendedores.findIndex(function (vendedor) {
-            return vendedor.id == id;
+          var index = _this3.clientes.findIndex(function (cliente) {
+            return cliente.id == id;
           });
 
-          _this3.vendedores.splice(index, 1);
+          _this3.clientes.splice(index, 1);
         })["catch"](function (error) {
           console.error(error);
           alert(error);
@@ -219,16 +218,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   mounted: function mounted() {
-    this.cargarVendedores();
+    this.cargarClientes();
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/vendedores.vue?vue&type=template&id=b1e3a0d8&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/vendedores.vue?vue&type=template&id=b1e3a0d8& ***!
-  \********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/clientes.vue?vue&type=template&id=0a846538&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/clientes.vue?vue&type=template&id=0a846538& ***!
+  \******************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -248,18 +247,18 @@ var render = function () {
           staticClass: "btn btn-success float-right",
           attrs: {
             "data-toggle": "modal",
-            "data-target": "#modalGuardarVendedor",
+            "data-target": "#modalGuardarCliente",
           },
-          on: { click: _vm.unSetSeller },
+          on: { click: _vm.unSetCliente },
         },
         [
           _c("i", { staticClass: "fa fa-plus" }),
-          _vm._v(" Agregar vendedor\n\t\t"),
+          _vm._v(" Agregar cliente\n\t\t"),
         ]
       ),
     ]),
     _vm._v(" "),
-    _vm.vendedores.length === 0
+    _vm.clientes.length === 0
       ? _c("div", { staticClass: "col-lg-12" }, [
           _c(
             "div",
@@ -267,7 +266,7 @@ var render = function () {
               staticClass: "alert alert-warning text-center",
               attrs: { role: "alert" },
             },
-            [_vm._v("\n\t\t\tNo se han registrado vendedores.\n\t\t")]
+            [_vm._v("\n\t\t\tNo se han registrado clientes.\n\t\t")]
           ),
         ])
       : _c("div", { staticClass: "col-lg-10 offset-1" }, [
@@ -282,20 +281,18 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.vendedores, function (vendedor) {
-                  return _c("tr", { key: vendedor.id }, [
+                _vm._l(_vm.clientes, function (cliente) {
+                  return _c("tr", { key: cliente.id }, [
                     _c("td", {
-                      domProps: {
-                        textContent: _vm._s(vendedor.identificacion),
-                      },
+                      domProps: { textContent: _vm._s(cliente.identificacion) },
                     }),
                     _vm._v(" "),
                     _c("td", {
-                      domProps: { textContent: _vm._s(vendedor.nombres) },
+                      domProps: { textContent: _vm._s(cliente.nombres) },
                     }),
                     _vm._v(" "),
                     _c("td", {
-                      domProps: { textContent: _vm._s(vendedor.apellidos) },
+                      domProps: { textContent: _vm._s(cliente.apellidos) },
                     }),
                     _vm._v(" "),
                     _c("td", { staticClass: "justify-content-center" }, [
@@ -316,11 +313,11 @@ var render = function () {
                                 attrs: {
                                   href: "#",
                                   "data-toggle": "modal",
-                                  "data-target": "#modalGuardarVendedor",
+                                  "data-target": "#modalGuardarCliente",
                                 },
                                 on: {
                                   click: function ($event) {
-                                    return _vm.setSellerToUpdate(vendedor)
+                                    return _vm.setClienteToUpdate(cliente)
                                   },
                                 },
                               },
@@ -337,7 +334,7 @@ var render = function () {
                                 attrs: { href: "#" },
                                 on: {
                                   click: function ($event) {
-                                    return _vm.deleteSeller(vendedor.id)
+                                    return _vm.deleteCliente(cliente.id)
                                   },
                                 },
                               },
@@ -363,7 +360,7 @@ var render = function () {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "modalGuardarVendedor",
+          id: "modalGuardarCliente",
           tabindex: "-1",
           "aria-labelledby": "exampleModalLabel",
           "aria-hidden": "true",
@@ -379,7 +376,7 @@ var render = function () {
                 on: {
                   submit: function ($event) {
                     $event.preventDefault()
-                    return _vm.guardarVendedor.apply(null, arguments)
+                    return _vm.guardarCliente.apply(null, arguments)
                   },
                 },
               },
@@ -398,8 +395,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model.trim",
-                            value: _vm.vendedor.identificacion,
-                            expression: "vendedor.identificacion",
+                            value: _vm.cliente.identificacion,
+                            expression: "cliente.identificacion",
                             modifiers: { trim: true },
                           },
                         ],
@@ -410,14 +407,14 @@ var render = function () {
                           min: "1",
                           max: "999999999999",
                         },
-                        domProps: { value: _vm.vendedor.identificacion },
+                        domProps: { value: _vm.cliente.identificacion },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.vendedor,
+                              _vm.cliente,
                               "identificacion",
                               $event.target.value.trim()
                             )
@@ -441,21 +438,21 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model.trim",
-                            value: _vm.vendedor.nombres,
-                            expression: "vendedor.nombres",
+                            value: _vm.cliente.nombres,
+                            expression: "cliente.nombres",
                             modifiers: { trim: true },
                           },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text", required: "" },
-                        domProps: { value: _vm.vendedor.nombres },
+                        domProps: { value: _vm.cliente.nombres },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.vendedor,
+                              _vm.cliente,
                               "nombres",
                               $event.target.value.trim()
                             )
@@ -479,21 +476,21 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model.trim",
-                            value: _vm.vendedor.apellidos,
-                            expression: "vendedor.apellidos",
+                            value: _vm.cliente.apellidos,
+                            expression: "cliente.apellidos",
                             modifiers: { trim: true },
                           },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text", required: "" },
-                        domProps: { value: _vm.vendedor.apellidos },
+                        domProps: { value: _vm.cliente.apellidos },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.vendedor,
+                              _vm.cliente,
                               "apellidos",
                               $event.target.value.trim()
                             )
@@ -561,7 +558,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Guardar vendedor")]
+        [_vm._v("Guardar cliente")]
       ),
       _vm._v(" "),
       _c(
@@ -751,17 +748,17 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ "./resources/js/views/vendedores.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/views/vendedores.vue ***!
-  \*******************************************/
+/***/ "./resources/js/views/clientes.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/views/clientes.vue ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _vendedores_vue_vue_type_template_id_b1e3a0d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vendedores.vue?vue&type=template&id=b1e3a0d8& */ "./resources/js/views/vendedores.vue?vue&type=template&id=b1e3a0d8&");
-/* harmony import */ var _vendedores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vendedores.vue?vue&type=script&lang=js& */ "./resources/js/views/vendedores.vue?vue&type=script&lang=js&");
+/* harmony import */ var _clientes_vue_vue_type_template_id_0a846538___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clientes.vue?vue&type=template&id=0a846538& */ "./resources/js/views/clientes.vue?vue&type=template&id=0a846538&");
+/* harmony import */ var _clientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clientes.vue?vue&type=script&lang=js& */ "./resources/js/views/clientes.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -771,9 +768,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _vendedores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _vendedores_vue_vue_type_template_id_b1e3a0d8___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _vendedores_vue_vue_type_template_id_b1e3a0d8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _clientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _clientes_vue_vue_type_template_id_0a846538___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _clientes_vue_vue_type_template_id_0a846538___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -783,38 +780,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/vendedores.vue"
+component.options.__file = "resources/js/views/clientes.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/vendedores.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/views/vendedores.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
+/***/ "./resources/js/views/clientes.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/views/clientes.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vendedores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./vendedores.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/vendedores.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vendedores_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_clientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./clientes.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/clientes.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_clientes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/vendedores.vue?vue&type=template&id=b1e3a0d8&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/views/vendedores.vue?vue&type=template&id=b1e3a0d8& ***!
-  \**************************************************************************/
+/***/ "./resources/js/views/clientes.vue?vue&type=template&id=0a846538&":
+/*!************************************************************************!*\
+  !*** ./resources/js/views/clientes.vue?vue&type=template&id=0a846538& ***!
+  \************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_vendedores_vue_vue_type_template_id_b1e3a0d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./vendedores.vue?vue&type=template&id=b1e3a0d8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/vendedores.vue?vue&type=template&id=b1e3a0d8&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_vendedores_vue_vue_type_template_id_b1e3a0d8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_clientes_vue_vue_type_template_id_0a846538___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./clientes.vue?vue&type=template&id=0a846538& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/clientes.vue?vue&type=template&id=0a846538&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_clientes_vue_vue_type_template_id_0a846538___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_vendedores_vue_vue_type_template_id_b1e3a0d8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_clientes_vue_vue_type_template_id_0a846538___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

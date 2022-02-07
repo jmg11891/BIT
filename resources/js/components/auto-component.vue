@@ -1,12 +1,12 @@
 <template>
 	<div class="card m-2">
 		<img :src="auto.imagen" class="card-img-top" v-if="auto.imagen" style="max-height: 200px;">
-		<img src="storage/images/image_not_found.png" class="card-img-top" v-else  style="max-height: 200px;">
+		<img :src="host+image" class="card-img-top" v-else  style="max-height: 200px;">
 		<div class="card-body">
-			<h5 class="card-title bg-light" v-text="auto.marca+' - '+auto.modelo"></h5>
+			<h5 class="card-title" v-text="auto.marca+' - '+auto.modelo"></h5>
 			<p class="card-text">
 				<b>Año: </b><span v-text="auto.anio"></span><br>
-				<b>Valor: </b>$ <span v-text="auto.valor"></span>
+				<b>Valor: </b>$<span v-text="auto.valor"></span>
 			</p>
 			<div class="row" v-if="actions">
 				<div class="col-12" v-if="auto.estado == 'disponible'">
@@ -35,6 +35,12 @@ export default{
 		updateAuto: Function,
 		deleteAuto: Function,
 		actions: Boolean
+	},
+	data(){
+		return {
+			image: "/storage/images/image_not_found.png",
+			host: window.location.origin
+		}
 	}
 }
 </script>
