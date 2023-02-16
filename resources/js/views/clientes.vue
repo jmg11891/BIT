@@ -2,12 +2,12 @@
 	<div class="row">
 		<div class="col-lg-10 offset-1 mb-4">
 			<button class="btn btn-success float-right" data-toggle="modal" data-target="#modalGuardarCliente" @click="unSetCliente">
-				<i class="fa fa-plus"></i> Agregar cliente
+				<i class="fa fa-plus"></i> Agregar nuevo cliente
 			</button>
 		</div>
 		<div class="col-lg-12" v-if="clientes.length === 0">
 			<div class="alert alert-warning text-center" role="alert">
-				No se han registrado clientes.
+				No se han registrado clientes
 			</div>
 		</div>
 		<div class="col-lg-10 offset-1" v-else>
